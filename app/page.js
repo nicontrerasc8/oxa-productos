@@ -35,9 +35,14 @@ export default function Home() {
         { peso: '120g', precio: 'S/. 19.00', imagen: '/images/p1.jpeg' }
       ]
     },
+    cafetera: {
+      nombre: 'Cafetera',
+      descripcion: 'Cafetera moderna y elegante para disfrutar del mejor café en casa. Ideal para preparar café de calidad barista.',
+      opciones: [
+        { peso: '', precio: 'S/. 95.00', imagen: '/images/cafetera.jpeg' }
+      ]
+    },
   };
-
-  const verdeSelvatico = '#2E7D32'; // Color verde selvático
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-100 to-green-50">
@@ -90,9 +95,9 @@ export default function Home() {
             <div key={producto.nombre} className="mt-16 text-center">
               <h3 className="text-3xl font-bold text-green-700 mb-4 animate-bounceIn">{producto.nombre}</h3>
               <p className="text-gray-700 mb-10 text-lg font-light">{producto.descripcion}</p>
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center items-center">
                 {producto.opciones.map((opcion, index) => (
-                  <div key={index} className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 ease-in-out transform hover:-translate-y-4 hover:scale-105">
+                  <div key={index} className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 ease-in-out transform hover:-translate-y-4 hover:scale-105 flex flex-col items-center">
                     <Image
                       src={opcion.imagen}
                       alt={`${producto.nombre} - ${opcion.peso}`}
@@ -101,7 +106,7 @@ export default function Home() {
                       className="rounded-lg hover:scale-110 transition-transform duration-500 ease-in-out"
                     />
                     <h4 className="mt-6 text-2xl font-bold text-green-800">{producto.nombre}</h4>
-                    <ul className="mt-4 text-gray-700 text-lg">
+                    <ul className="mt-4 text-gray-700 text-lg text-center">
                       <li className="mt-2">
                         {opcion.tipo ? `${opcion.tipo}: ` : ''}{opcion.peso} - <span className="font-semibold text-green-600">{opcion.precio}</span>
                       </li>
